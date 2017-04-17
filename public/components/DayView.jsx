@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import update from 'immutability-helper'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -24,6 +25,17 @@ const mapDispatchToProps = (dispatch, state) => {
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class DayView extends Component {
+
+  static propTypes = {
+    month : PropTypes.number.isRequired,
+    year  : PropTypes.number,
+    progress1 : PropTypes.func.isRequired,
+    progress3 : PropTypes.func.idRequired,
+  }
+
+  static defaultProps = {
+    year: 0,
+  }
 
   render() {
 
